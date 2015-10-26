@@ -1,0 +1,19 @@
+#!/bin/bash
+##
+## Some caveats to the undercloud installation
+##
+
+echo "Caveats:"
+echo "#### Caveat 1 ####"
+echo "It seems the br-ctlplane interface does not come up as expected - this may be due to the unclean uninstall I have used ..."
+echo "ifdown eno1 && ifup br-ctlplane seems to 'fix this'. Restarting openvswitch and mariadb services after this is recommended."
+echo
+echo
+
+echo "#### Caveat 2 ####"
+echo "There is a connection error during installation - python backtrace in the /var/log/messages file"
+echo "This can be worked around by commenting out:
+echo "option httpchk GET / in the /etc/haproxy/haproxy.cfg file"
+echo "The haproxy service should then be restarted."
+echo
+echo
